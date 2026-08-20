@@ -229,11 +229,11 @@ footer{background:#fff;padding:60px 0 40px}
 </footer>
 
 <script>
-const IMG=(w,h,kw,l)=>`url("https://loremflickr.com/${w}/${h}/${kw}?lock=${l}")`;
-document.getElementById('aboutImg').style.backgroundImage=IMG(800,720,'birthdaycake',2);
-const gal=[['weddingcake',1,'tall'],['cupcake',4,''],['chocolatecake',1,''],['cakeslice',2,''],['cake',3,''],['cupcake',6,'']];
+// Gamma's real photos (from her Google Business listing)
+document.getElementById('aboutImg').style.backgroundImage="url('gcake6.jpg')";
+const gal=[['gcake8.jpg','tall'],['gcake5.jpg',''],['gcake9.jpg',''],['gcake3.jpg',''],['gcake1.jpg',''],['gcake7.jpg','']];
 const g=document.getElementById('gal');
-gal.forEach(([kw,l,cls])=>{const d=document.createElement('div');d.className='g '+cls;d.innerHTML=`<div class='pic' style='background-image:${IMG(700,700,kw,l)}'></div>`;g.appendChild(d);});
+gal.forEach(([src,cls])=>{const d=document.createElement('div');d.className='g '+cls;d.innerHTML=`<div class='pic' style="background-image:url('${src}')"></div>`;g.appendChild(d);});
 const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}}),{threshold:.12});
 document.querySelectorAll('.rv').forEach(el=>{const s=[...el.parentElement.children].filter(c=>c.classList.contains('rv'));const i=s.indexOf(el);if(i>0)el.style.transitionDelay=(i*0.07).toFixed(2)+'s';io.observe(el);});
 </script>
